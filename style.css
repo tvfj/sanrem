@@ -1,4 +1,3 @@
-/* --- ARCHIVO CSS CON RECUADRO ELIMINADO --- */
 
 body {
     font-family: Helvetica, Arial, sans-serif;
@@ -6,16 +5,14 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f2f5;
+    background-color: white; 
     margin: 0;
     padding: 20px;
 }
 
 .container {
-    /* CAMBIO CLAVE: Se elimina el fondo blanco para quitar el recuadro */
     background: transparent;
-    
-    padding: 1rem; /* Reducimos un poco el padding para que no se vea tanto espacio vacío */
+    padding: 1rem;
     width: 100%;
     max-width: 600px;
     box-sizing: border-box;
@@ -37,7 +34,6 @@ h1, h3 {
 .voting-section {
     margin-bottom: 1.5rem;
     padding-top: 1rem;
-    /* Eliminamos el borde superior para una apariencia más limpia */
     border-top: none; 
 }
 
