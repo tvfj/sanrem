@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // ===================================================================
         // IMPORTANTE: REEMPLAZA ESTA URL CON LA TUYA DE GOOGLE APPS SCRIPT
-        const scriptURL = 'URL_DE_TU_SCRIPT_DE_GOOGLE_APPS';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyeqkZZtTtUmtJY49K6ggBXa-h4l-PxucnYC1f-ZBhYkV3U7FLb7YkU1MLBtGV3-psJ/exec';
         // ===================================================================
         
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
