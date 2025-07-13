@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- BASE DE DATOS DE CANCIONES ACTUALIZADA CON CLASIFICACIÓN ---
+    // --- BASE DE DATOS DE CANCIONES COMPLETA CON CLASIFICACIÓN ---
     const songsData = {
         "1951": ["1. Nilla Pizzi – Grazie dei ﬁori", "2. Nilla Pizzi y Achille Togliani – La luna si veste d’argento", "3. Achille Togliani – Serenata a nessuno", "4. Achille Togliani y Duo Fasano – Al mercato di Pizzighettone", "5. Duo Fasano – La cicogna distratta", "6. Nilla Pizzi y Duo Fasano – La margherita", "7. Nilla Pizzi y Achille Togliani – L’eco fra gli abeti", "8. Achille Togliani y Duo Fasano – Togliani Famme durmì", "9. Achille Togliani – Sedici anni", "10. Duo Fasano – Sotto il mandorlo", "- Nilla Pizzi – È l’alba", "- Achille Togliani – Mai più", "- Achille Togliani y Duo Fasano – Sei fatta per me", "- Duo Fasano – Sorrentinella", "- Nilla Pizzi – Tutto è ﬁnito", "- Nilla Pizzi – Ho pianto una volta sola", "- Achille Togliani – Mani che si cercano", "- Nilla Pizzi – Mia cara Napoli", "- Nilla Pizzi – Notte di Sanremo", "- Nilla Pizzi – Oro di Napoli"],
         "1952": ["1. Nilla Pizzi – Vola colomba", "2. Nilla Pizzi – Papaveri e papere", "3. Nilla Pizzi – Una donna prega", "4. Oscar Carboni – Madonna delle rose", "5. Gino Latilla – Un disco dall’Italia", "6. Gino Latilla – L’attesa", "7. Oscar Carboni – Perché le donne belle", "8. Achille Togliani – Vecchie mura", "9. Achille Togliani – Libro di novelle", "10. Nilla Pizzi y Achille Togliani – Nel regno dei sogni", "- Duo Fasano – Al ritmo della carrozzella", "- Achille Togliani – La collanina", "- Gino Latilla – Pura fantasia", "- Nilla Pizzi – Ninna nanna ai sogni perduti", "- Nilla Pizzi y Duo Fasano – Il valzer di nonna Speranza", "- Duo Fasano – Due gattini", "- Gino Latilla – Malinconica tarantella", "- Nilla Pizzi y Duo Fasano – Buonanotte ai bimbi del mondo", "- Oscar Carboni – Cantate e sorridete", "- Duo Fasano – Vecchio tram"],
@@ -134,8 +134,8 @@ document.addEventListener('DOMContentLoaded', function() {
             section.classList.toggle('hidden', i !== index);
         });
 
-        // Actualizar título y visibilidad de botones
-        sectionTitle.textContent = `Votación ${index + 1} (${points[index]} puntos)`;
+        // TÍTULO DE SECCIÓN MODIFICADO
+        sectionTitle.textContent = `${points[index]} Puntos`;
         prevBtn.classList.toggle('hidden', index === 0);
         
         if (index === totalSections - 1) {
@@ -181,12 +181,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // ===================================================================
         // IMPORTANTE: REEMPLAZA ESTA URL CON LA TUYA DE GOOGLE APPS SCRIPT
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyeqkZZtTtUmtJY49K6ggBXa-h4l-PxucnYC1f-ZBhYkV3U7FLb7YkU1MLBtGV3-psJ/exec';
+        const scriptURL = 'URL_DE_TU_SCRIPT_DE_GOOGLE_APPS';
         // ===================================================================
         
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => {
-                alert('¡Votos enviados con éxito!');
+                // ALERTA MODIFICADA
+                alert('¡Gracias por participar en Sanremo100!');
                 form.reset();
                 currentSection = 0;
                 // Resetear todos los select de canciones
