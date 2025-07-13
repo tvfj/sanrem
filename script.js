@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- BASE DE DATOS DE CANCIONES COMPLETA CON CLASIFICACIÓN ---
     const songsData = {
         "1951": ["1. Nilla Pizzi – Grazie dei ﬁori", "2. Nilla Pizzi y Achille Togliani – La luna si veste d’argento", "3. Achille Togliani – Serenata a nessuno", "4. Achille Togliani y Duo Fasano – Al mercato di Pizzighettone", "5. Duo Fasano – La cicogna distratta", "6. Nilla Pizzi y Duo Fasano – La margherita", "7. Nilla Pizzi y Achille Togliani – L’eco fra gli abeti", "8. Achille Togliani y Duo Fasano – Togliani Famme durmì", "9. Achille Togliani – Sedici anni", "10. Duo Fasano – Sotto il mandorlo", "- Nilla Pizzi – È l’alba", "- Achille Togliani – Mai più", "- Achille Togliani y Duo Fasano – Sei fatta per me", "- Duo Fasano – Sorrentinella", "- Nilla Pizzi – Tutto è ﬁnito", "- Nilla Pizzi – Ho pianto una volta sola", "- Achille Togliani – Mani che si cercano", "- Nilla Pizzi – Mia cara Napoli", "- Nilla Pizzi – Notte di Sanremo", "- Nilla Pizzi – Oro di Napoli"],
         "1952": ["1. Nilla Pizzi – Vola colomba", "2. Nilla Pizzi – Papaveri e papere", "3. Nilla Pizzi – Una donna prega", "4. Oscar Carboni – Madonna delle rose", "5. Gino Latilla – Un disco dall’Italia", "6. Gino Latilla – L’attesa", "7. Oscar Carboni – Perché le donne belle", "8. Achille Togliani – Vecchie mura", "9. Achille Togliani – Libro di novelle", "10. Nilla Pizzi y Achille Togliani – Nel regno dei sogni", "- Duo Fasano – Al ritmo della carrozzella", "- Achille Togliani – La collanina", "- Gino Latilla – Pura fantasia", "- Nilla Pizzi – Ninna nanna ai sogni perduti", "- Nilla Pizzi y Duo Fasano – Il valzer di nonna Speranza", "- Duo Fasano – Due gattini", "- Gino Latilla – Malinconica tarantella", "- Nilla Pizzi y Duo Fasano – Buonanotte ai bimbi del mondo", "- Oscar Carboni – Cantate e sorridete", "- Duo Fasano – Vecchio tram"],
@@ -79,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
         "2025": ["1. Olly - Balorda nostalgia", "2. Lucio Corsi - Volevo essere un duro", "3. Brunori Sas - L'albero delle noci", "4. Fedez - Battito", "5. Simone Cristicchi - Quando sarai piccola", "6. Giorgia - La cura per me", "7. Achille Lauro - Incoscienti giovani", "8. Francesco Gabbani - Viva la vita", "9. Irama - Lentamente", "10. Coma_Cose - Cuoricini", "11. Bresh - La tana del granchio", "12. Elodie - Dimenticarsi alle 7", "13. Noemi - Se t'innamori muori", "14. The Kolors - Tu con chi fai l'amore", "15. Rocco Hunt - Mille vote ancora", "16. Willie Peyote - Grazie ma no grazie", "17. Sarah Toscano - Amarcord", "18. Shablo con Guè, Joshua e Tormento - La mia parola", "19. Rose Villain - Fuorilegge", "20. Joan Thiele - Eco", "21. Francesca Michielin - Fango in paradiso", "22. Modà - Non ti dimentico", "23. Massimo Ranieri - Tra le mani un cuore", "24. Serena Brancale - Anema e core", "25. Tony Eﬀe - Damme 'na mano", "26. Gaia - Chiamo io chiami tu", "27. Clara - Febbre", "28. Rkomi - Il ritmo delle cose", "29. Marcella Bella - Pelle diamante", "- Emis Killa - Demoni (descaliﬁcado)"]
     };
 
-    // --- VARIABLES Y CONSTANTES DEL DOM ---
     const votingSectionsContainer = document.getElementById('voting-sections');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
@@ -92,7 +90,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const totalSections = 10;
     const points = [1, 2, 3, 4, 5, 6, 7, 8, 10, 12];
 
-    // --- FUNCIÓN PARA CREAR LAS SECCIONES DE VOTACIÓN ---
     function createVotingSections() {
         let allSectionsHTML = '';
         for (let i = 0; i < totalSections; i++) {
@@ -114,10 +111,9 @@ document.addEventListener('DOMContentLoaded', function() {
         votingSectionsContainer.innerHTML = allSectionsHTML;
     }
 
-    // --- FUNCIÓN PARA ACTUALIZAR LAS CANCIONES SEGÚN EL AÑO ---
     function updateSongs(yearSelect, songSelect) {
         const selectedYear = yearSelect.value;
-        songSelect.innerHTML = '<option value="">Selecciona una canción</option>'; // Limpiar y poner placeholder
+        songSelect.innerHTML = '<option value="">Selecciona una canción</option>';
         if (selectedYear && songsData[selectedYear]) {
             songsData[selectedYear].forEach(song => {
                 const option = document.createElement('option');
@@ -128,13 +124,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // --- FUNCIÓN PARA MOSTRAR LA SECCIÓN ACTUAL ---
     function showSection(index) {
         document.querySelectorAll('.voting-section').forEach((section, i) => {
             section.classList.toggle('hidden', i !== index);
         });
 
-        // TÍTULO DE SECCIÓN MODIFICADO
         sectionTitle.textContent = `${points[index]} Puntos`;
         prevBtn.classList.toggle('hidden', index === 0);
         
@@ -149,10 +143,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // --- INICIALIZACIÓN Y EVENT LISTENERS ---
     createVotingSections();
 
-    // Añadir listeners a todos los select de año
     for (let i = 0; i < totalSections; i++) {
         const yearSelect = document.getElementById(`year-${i}`);
         const songSelect = document.getElementById(`song-${i}`);
@@ -179,22 +171,17 @@ document.addEventListener('DOMContentLoaded', function() {
         submitButton.disabled = true;
         submitButton.textContent = 'Enviando...';
 
-        // ===================================================================
-        // IMPORTANTE: REEMPLAZA ESTA URL CON LA TUYA DE GOOGLE APPS SCRIPT
         const scriptURL = 'https://script.google.com/macros/s/AKfycbyeqkZZtTtUmtJY49K6ggBXa-h4l-PxucnYC1f-ZBhYkV3U7FLb7YkU1MLBtGV3-psJ/exec';
-        // ===================================================================
         
         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => {
-                // ALERTA MODIFICADA
                 alert('¡Gracias por participar en Sanremo100!');
                 form.reset();
                 currentSection = 0;
-                // Resetear todos los select de canciones
                  for (let i = 0; i < totalSections; i++) {
                     document.getElementById(`song-${i}`).innerHTML = '<option value="">Primero selecciona un año</option>';
                  }
-                showSection(currentSection); // Volver al inicio
+                showSection(currentSection);
                 submitButton.disabled = false;
                 submitButton.textContent = 'Enviar Votos';
             })
